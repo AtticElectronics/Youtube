@@ -24,3 +24,4 @@ I2S 1버스
   SD  : GPIO19
   WS  : GPIO20
 ```
+![Schematic_aispeaker_2023-12-24](https://github.com/AtticElectronics/Youtube/assets/128982852/76720b4a-a85d-42c1-8d0d-843c70360c8e)
