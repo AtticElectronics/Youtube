@@ -2,11 +2,11 @@
 
 # 사용된 주요 하드웨어
 
-ESP32-S3-R8N16
-INMP441 
-PCM5102A
-ILI9431 혹은 ILI9488(해상도: 480*320 픽셀)
-PAM8403
+1. ESP32-S3-R8N16
+2. INMP441 
+3. PCM5102A
+4. ILI9431 혹은 ILI9488(해상도: 480*320 픽셀)
+5. PAM8403
 ![Group 26](https://github.com/AtticElectronics/Youtube/assets/128982852/52b3849c-c727-455a-9a2d-ecd4cb4bcaa0)
 
 ```
