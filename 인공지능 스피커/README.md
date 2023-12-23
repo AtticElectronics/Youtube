@@ -40,15 +40,16 @@ I2S 1버스 (PCM5102A)
 ```
 
 # STEP 3. 펌웨어 업로드
+```
 1. ESP32 LittleFS로 simg파일을 업로드한다.
 2. zip 파일을 다운받아 아두이노 라이브러리로 설치
 3. 예제폴더의 FW/FW.ino를 빌드후 업로드한다.
-
+```
 # STEP 4. 서버코드
+```
 1. 관련 패키지를 설치한다.
 2. server/main.py를 실행한다. 
-
-# STEP 5. PUSH BUTTON & ENJOY 
-
+```
+# STEP 5. PUSH BUTTON & ENJOY
 
 
