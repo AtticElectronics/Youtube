@@ -42,7 +42,7 @@ I2S 1버스 (PCM5102A)
 # STEP 3. 펌웨어 업로드
 ```
 1. TFT_eSPI bodmer씨의 라이브러리를 철치
-2. TFT_eSPI를 사용가능하게 설정 후 계속진행
+2. TFT_eSPI를 사용가능하게 설정한다. (예제 동작확인 후 계속진행)
 3. 필자의 TFT_eSPI_Utilities 라이브러리 설치
 4. 필자의 ESP32_Utilities 라이브러리 설치
 5. LittleFS로 FW/data/*.simg파일들을 플래시에 저장한다.
@@ -57,7 +57,7 @@ I2S 1버스 (PCM5102A)
 
 # STEP 5. PUSH BUTTON & ENJOY
 ```
-테스트하며 놀다가 코드를 개선하거나 
+테스트하며 놀다가 코드를 개선하거나 만족한다.
 ```
 
 
