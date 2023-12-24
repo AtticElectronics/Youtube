@@ -23,7 +23,7 @@ TFT display
   MOSI : GPIO41
   CLK  : GPIO40
 버튼
-  GPIO9
+  GPIO9 (풀업)
 I2S 0버스 (INMP441)
   CLK : GPIO18
   SD  : GPIO17
@@ -55,9 +55,9 @@ I2S 1버스 (PCM5102A)
 2. server/main.py를 실행한다. 
 ```
 
-# STEP 5. PUSH BUTTON & ENJOY
+# STEP 5. 즐기기
 ```
-테스트하며 놀다가 코드를 개선하거나 만족한다.
+버튼을 눌러 테스트하며 놀다가 코드를 개선하거나 만족한다.
 ```
 
 
