@@ -1,9 +1,13 @@
-from esp32_tcp import *
 import datetime
+import time
+
 import whisper
+import re
+import subprocess
 from simple_gpt import *
 from text_to_wav import *
-
+from esp32_tcp import *
+ 
 class YoutubeAIspeakerAudioSender(ESPTCPAudioSend):
     def __init__(self, client_socket, client_address, work_list, lock):
         super().__init__(client_socket, client_address)
@@ -24,14 +28,26 @@ class YoutubeAIspeakerAudioSender(ESPTCPAudioSend):
                 print("해당입력문장",text_from_user[1])
 
                 self.GPT.add_msg(text_from_user[1])
-                rid = self.GPT.get_run_id("jarvis_3.5")
-
+                rid = self.GPT.get_run_id("Terminal_AI")
                 result = self.GPT.wait_run(rid)
                 #result = "하이 방가방가"
-                answer_bytes = result.encode()
-                self.send_21024(len(answer_bytes), answer_bytes)
 
-                if self.converter.convert_to_wav(result, filename):
+                print("파싱전:",result)
+                parsed_commands, cleaned_string = self.parse_terminal_string(result)
+                print("대답파싱:",parsed_commands,cleaned_string)
+                # 파싱된 명령어 실행
+                for cmd in parsed_commands:
+                    output, error = self.execute_command(cmd)
+                    print("Executing command:", cmd)
+                    print("Output:", output)
+                    print("Error:", error)
+
+                # 줄바꿈 문자 제거 및 비어있는 경우 처리
+                cleaned_string = self.clean_and_check_string(cleaned_string)
+
+                answer_bytes = cleaned_string.encode()
+                self.send_21024(len(answer_bytes), answer_bytes)
+                if self.converter.convert_to_wav(cleaned_string, filename):
                     print("음성파일 생성 성공")
                 else:
                     print("음성파일 생성 실패")
@@ -50,6 +66,29 @@ class YoutubeAIspeakerAudioSender(ESPTCPAudioSend):
         finally:
             self.wav_file.close()
             self.close()
+
+
+    def execute_command(self, command):
+        try:
+            result = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            return result.stdout.decode(), result.stderr.decode()
+        except subprocess.CalledProcessError as e:
+            return e.stdout.decode(), e.stderr.decode()
+
+    def parse_terminal_string(self, input_string):
+        pattern = r'\[터미널\]\["(.*?)"\]'
+        parsed_contents = re.findall(pattern, input_string)
+        # 입력 문자열에서 파싱된 부분 제거
+        cleaned_string = re.sub(pattern, '', input_string)
+        return parsed_contents, cleaned_string
+
+    def clean_and_check_string(self, string):
+        # 줄바꿈 문자 제거
+        cleaned_string = string.replace('\n', '').strip()
+        # 문자열이 비어 있거나 공백만 있는 경우 "..."로 대체
+        if not cleaned_string:
+            cleaned_string = "..."
+        return cleaned_string
 
     def update_work_list(self, macaddress, text=None):
 
@@ -82,6 +121,7 @@ class YoutubeAIspeakerAudioReciver(ESP32TCPAudioRecv):
         self.model = whisper.load_model("base")
 
     def start(self):
+        global trynum
         try:
             macaddress = ""
             while True:
@@ -97,10 +137,10 @@ class YoutubeAIspeakerAudioReciver(ESP32TCPAudioRecv):
                     self.wav_file.writeframes(amplified_data)
 
             # 위스퍼 문자열생성
-            result = self.model.transcribe("F412FACB1214.wav")
+            result = self.model.transcribe("ECDA3B45E7A0.wav")
             print(result["text"])
-
             print(self.work_list)
+
             self.update_work_list(macaddress,result["text"])
             self.send_21024(len(result["text"].encode()),result["text"].encode())
 
