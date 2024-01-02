@@ -52,7 +52,15 @@ I2S 1버스 (PCM5102A)
 # STEP 4. 서버코드
 ```
 1. 관련 패키지를 설치한다.
-2. server/main.py를 실행한다. 
+2. .env 파일을 만든다.
+3. server/main.py를 실행한다. 
+```
+### .env파일 형태
+```cpp
+OPENAI_API_KEY=yourkey
+AI_ID4=인공지능키?아이디?코드?
+AI_ID35=인공지능키?아이디?코드?
+TERMINAL=인공지능키?아이디?코드?
 ```
 
 # STEP 5. 즐기기
