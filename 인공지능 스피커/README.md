@@ -23,7 +23,7 @@ TFT display
   MOSI : GPIO41
   CLK  : GPIO40
 버튼
-  GPIO9 (풀업)
+  GPIO9 (내부풀업, 즉,GND와 연결)
 I2S 0버스 (INMP441)
   CLK : GPIO18
   SD  : GPIO17
