@@ -58,10 +58,10 @@ I2S 1버스 (PCM5102A)
 
 ### .env파일 형태
 ```python
-OPENAI_API_KEY=당신의 openai api 키
-AI_ID4=asst_로시작하는 당신이 만든 어시스턴스 ID
-AI_ID35=asst_로시작하는 당신이 만든 어시스턴스 ID
-TERMINAL=asst_로시작하는 당신이 만든 어시스턴스 ID
+OPENAI_API_KEY=sk-ABCDEGFdsalkfjlksd # 당신의 openai api 키
+AI_ID4=asst_ABCDEABCDEABCDEABCDEABCDE # 당신이 만든 어시스턴스 ID
+AI_ID35=asst_ABCDEABCDEABCDEABCDEABCDE # 당신이 만든 어시스턴스 ID
+TERMINAL=asst_ABCDEABCDEABCDEABCDEABCDE # 당신이 만든 어시스턴스 ID
 # 만들때 GPT4로된 어시스턴스 GPT3.5 등등 여러게를 만들고 바꿔가면서 사용하능하게 할려다 3개를 만들었는데
 # AI_ID4, AI_ID35, TERMINAL 각각 동일한 어시스턴스 ID를 넣어도 동작할겁니다.
 ```
