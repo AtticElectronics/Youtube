@@ -51,16 +51,17 @@ I2S 1버스 (PCM5102A)
 
 # STEP 4. 서버코드
 ```
-1. 관련 패키지를 설치한다.
-2. .env 파일을 만든다.
+1. 관련 패키지를 설치한다. (pip install -r requirements.txt)
+2. .env 파일을 만든다.(main.py와 같은경로에 .env 파일을 만든다. 해당파일내용은 아래처럼 작성한다)
 3. server/main.py를 실행한다. 
 ```
+
 ### .env파일 형태
 ```cpp
-OPENAI_API_KEY=yourkey
-AI_ID4=인공지능키?아이디?코드?
-AI_ID35=인공지능키?아이디?코드?
-TERMINAL=인공지능키?아이디?코드?
+OPENAI_API_KEY=당신의 openai api 키
+AI_ID4=asst_로시작하는 당신이 만든 어시스턴스
+AI_ID35=asst_로시작하는 당신이 만든 어시스턴스
+TERMINAL=asst_로시작하는 당신이 만든 어시스턴스
 ```
 
 # STEP 5. 즐기기
