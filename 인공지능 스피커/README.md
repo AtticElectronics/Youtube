@@ -57,7 +57,7 @@ I2S 1버스 (PCM5102A)
 ```
 
 ### .env파일 형태
-```python
+```
 OPENAI_API_KEY=sk-ABCDEGFdsalkfjlksd # 당신의 openai api 키
 AI_ID4=asst_ABCDEABCDEABCDEABCDEABCDE # 당신이 만든 어시스턴스 ID
 AI_ID35=asst_ABCDEABCDEABCDEABCDEABCDE # 당신이 만든 어시스턴스 ID
