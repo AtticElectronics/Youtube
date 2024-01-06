@@ -1,0 +1,4 @@
+pydub
+gTTS
+python-dotenv
+whisper
