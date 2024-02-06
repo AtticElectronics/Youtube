@@ -6,7 +6,7 @@
 
 #include <ScrollElement.h>
 #include <ScrollContainer.h>
-#include <NotoSans.h>
+#include <fonts/NotoSans.h>
 #include <TextToSprite.h>
 
 #include <WiFi.h>
