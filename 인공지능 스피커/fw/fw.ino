@@ -52,13 +52,13 @@ void setup(void)
     sendVoice.setServerAddr("192.168.0.200", 33823); // String ip, int port
     sendVoice.setI2sBus(1);                          // 0 or 1
     sendVoice.setAudioQulity(16000, 16, 1);          // int sample_rate, int sample_size, int channels(only 1 tested)
-    sendVoice.setI2sPin(8, 19, 20);                  // int sck, int sd, int ws
+    recvVoice.setI2sPin(18, 17, 16);         // int sck, int sd, int ws
     sendVoice.setDmaBuf(1024, 6);                    // int len(only 1024 tested), int count
     sendVoice.i2sBegin();
 
     recvVoice.setI2sBus(0);                  // 0 or 1
     recvVoice.setAudioQuality(16000, 16, 1); // int sample_rate, int sample_size(only 16), int channels(only 1)
-    recvVoice.setI2sPin(18, 17, 16);         // int sck, int sd, int ws
+    sendVoice.setI2sPin(8, 19, 20);                  // int sck, int sd, int ws
     recvVoice.setDmaBuf(1024, 6);            // int len(only 1024 tested), int count
     recvVoice.i2sBegin();
 
